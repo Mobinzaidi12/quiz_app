@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
                    child: Container(
                     height: 220,
                      width: MediaQuery.of(context).size.width,
-                     color: Color(0xff17020A),
+                     color: Color(0xff417020),
                      child: Stack(
                        children: [
                          Container(
@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
                                  radius: 30,
                                ),
                                SizedBox(width: 20,),
-                               Text('Mobin Zaidi', style: TextStyle(color: Colors.white, fontSize:20 ,fontWeight: FontWeight.bold),)
+                               Text('Mobin Zaidi', style: TextStyle(color: Color(0xffDBF2C0), fontSize:25 ,fontWeight: FontWeight.bold),)
                              ],
                            ),
                          ),
@@ -56,14 +56,14 @@ class _HomeState extends State<Home> {
                    child: Column(
                      mainAxisAlignment: MainAxisAlignment.center,
                      children: [
-                       Text('Play & \n  Win', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),),
-                       Text('Play quiz by guessing  \n           the image',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+                       Text('Play & \n  Win', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Color(0xff417020)),),
+                       Text('Play quiz by guessing  \n           the image',style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color(0xff417020) ))
                      ],
                    ),
                  )
                ],
              ),
-              Text('Top Quiz Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900),),
+              Text('Top Quiz Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900, color: Color(0xff417020)),),
               SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(right: 15.0, left: 15.0),
@@ -85,7 +85,7 @@ class _HomeState extends State<Home> {
                               width: 140,
                               child: Image.asset('assets/images/animal.png'),
                             ),
-                            Text('Animal', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900), )
+                            Text('Animal', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
                           ],
                         ),
                       ),
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                               width: 140,
                               child: Image.asset('assets/images/place.png'),
                             ),
-                            Text('Place', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900), )
+                            Text('Place', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
                           ],
                         ),
                       ),
@@ -135,7 +135,7 @@ class _HomeState extends State<Home> {
                               width: 140,
                               child: Image.asset('assets/images/fruit.png'),
                             ),
-                            Text('Fruits', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900), )
+                            Text('Fruits', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
                           ],
                         ),
                       ),
@@ -155,7 +155,7 @@ class _HomeState extends State<Home> {
                               width: 140,
                               child: Image.asset('assets/images/object.png'),
                             ),
-                            Text('Objects', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900), )
+                            Text('Objects', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
                           ],
                         ),
                       ),
@@ -185,7 +185,7 @@ class _HomeState extends State<Home> {
                               width: 140,
                               child: Image.asset('assets/images/sport.png'),
                             ),
-                            Text('Sports', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900), )
+                            Text('Sports', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
                           ],
                         ),
                       ),
@@ -205,7 +205,7 @@ class _HomeState extends State<Home> {
                               width: 140,
                               child: Image.asset('assets/images/random.png'),
                             ),
-                            Text('Random', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900), )
+                            Text('Random', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
                           ],
                         ),
                       ),

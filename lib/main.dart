@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/admin/admin.dart';
 import 'package:quiz_app/pages/home.dart';
 import 'package:quiz_app/pages/question.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Home(),
+        body: Admin(),
       ),
     );
   }

@@ -11,10 +11,10 @@ class _QuestionState extends State<Question> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff417020A),
+        backgroundColor: Color(0xff417020),
       appBar: AppBar(
-        title: Text('Animal', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),),
-          backgroundColor: Color(0xff17020A)
+        title: Text('Animal', style: TextStyle(color: Color(0xffDBF2C0), fontWeight: FontWeight.w800, fontSize: 30),),
+          backgroundColor: Color(0xff417020)
       ),
       body: ClipRRect(
         borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30) ),
@@ -40,12 +40,13 @@ class _QuestionState extends State<Question> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
                   border: Border.all(
-                    color: Colors.black
+                      width: 2,
+                      color: Color(0xff417020)
                   )
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Tiger', style: TextStyle(fontSize: 25),),
+                  child: Text('Tiger', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
                 ),
               ),
               Container(
@@ -55,12 +56,13 @@ class _QuestionState extends State<Question> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(
-                        color: Colors.black
+                        width: 2,
+                        color: Color(0xff417020)
                     )
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Sheep', style: TextStyle(fontSize: 25),),
+                  child: Text('Sheep', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
                 ),
               ),
               Container(
@@ -70,12 +72,13 @@ class _QuestionState extends State<Question> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(
-                        color: Colors.black
+                        width: 2,
+                        color: Color(0xff417020)
                     )
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Dog', style: TextStyle(fontSize: 25),),
+                  child: Text('Dog', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
                 ),
               ),
               Container(
@@ -85,12 +88,13 @@ class _QuestionState extends State<Question> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(
-                        color: Colors.black
+                      width: 2,
+                        color: Color(0xff417020)
                     )
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Lion', style: TextStyle(fontSize: 25),),
+                  child: Text('Lion', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
                 ),
               )
             ],
