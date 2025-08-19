@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/ui_helper.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -70,47 +71,8 @@ class _HomeState extends State<Home> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      elevation: 5.0,
-                      clipBehavior: Clip.antiAlias,
-                      child: Container(
-                        height: 180,
-                        width: 180,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 130,
-                              width: 140,
-                              child: Image.asset('assets/images/animal.png'),
-                            ),
-                            Text('Animal', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      elevation: 5.0,
-                      clipBehavior: Clip.antiAlias,
-                      child: Container(
-                        height: 180,
-                        width: 180,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 130,
-                              width: 140,
-                              child: Image.asset('assets/images/place.png'),
-                            ),
-                            Text('Place', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
-                          ],
-                        ),
-                      ),
-                    ),
-
+                    UiHelper.CustomCardWiget(Image.asset('assets/images/animal.png'), 'Animal'),
+                    UiHelper.CustomCardWiget(Image.asset('assets/images/place.png'), 'Place'),
                   ],
                 ),
               ),
@@ -120,47 +82,8 @@ class _HomeState extends State<Home> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      elevation: 5.0,
-                      clipBehavior: Clip.antiAlias,
-                      child: Container(
-                        height: 180,
-                        width: 180,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 130,
-                              width: 140,
-                              child: Image.asset('assets/images/fruit.png'),
-                            ),
-                            Text('Fruits', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      elevation: 5.0,
-                      clipBehavior: Clip.antiAlias,
-                      child: Container(
-                        height: 180,
-                        width: 180,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 130,
-                              width: 140,
-                              child: Image.asset('assets/images/object.png'),
-                            ),
-                            Text('Objects', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
-                          ],
-                        ),
-                      ),
-                    ),
-
+                   UiHelper.CustomCardWiget(Image.asset('assets/images/fruit.png'), 'Fruits'),
+                    UiHelper.CustomCardWiget(Image.asset('assets/images/object.png'), 'Object')
                   ],
                 ),
               ),
@@ -170,47 +93,8 @@ class _HomeState extends State<Home> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      elevation: 5.0,
-                      clipBehavior: Clip.antiAlias,
-                      child: Container(
-                        height: 180,
-                        width: 180,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 130,
-                              width: 140,
-                              child: Image.asset('assets/images/sport.png'),
-                            ),
-                            Text('Sports', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      elevation: 5.0,
-                      clipBehavior: Clip.antiAlias,
-                      child: Container(
-                        height: 180,
-                        width: 180,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 130,
-                              width: 140,
-                              child: Image.asset('assets/images/random.png'),
-                            ),
-                            Text('Random', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color: Color(0xff417020)), )
-                          ],
-                        ),
-                      ),
-                    ),
-
+                    UiHelper.CustomCardWiget(Image.asset('assets/images/sport.png'), 'Sports'),
+                    UiHelper.CustomCardWiget(Image.asset('assets/images/random.png'), 'Random')
                   ],
                 ),
               )

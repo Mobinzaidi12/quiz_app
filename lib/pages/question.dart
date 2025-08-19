@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/ui_helper.dart';
 
 class Question extends StatefulWidget {
   const Question({super.key});
@@ -33,70 +34,10 @@ class _QuestionState extends State<Question> {
                   image: DecorationImage(image: AssetImage('assets/images/Lion.jpg'))
                 ),
               ),
-              Container(
-                margin: EdgeInsets.all(20),
-                height: MediaQuery.of(context).size.width/6,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  border: Border.all(
-                      width: 2,
-                      color: Color(0xff417020)
-                  )
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Tiger', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(20),
-                height: MediaQuery.of(context).size.width/6,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    border: Border.all(
-                        width: 2,
-                        color: Color(0xff417020)
-                    )
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Sheep', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(20),
-                height: MediaQuery.of(context).size.width/6,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    border: Border.all(
-                        width: 2,
-                        color: Color(0xff417020)
-                    )
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Dog', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(20),
-                height: MediaQuery.of(context).size.width/6,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    border: Border.all(
-                      width: 2,
-                        color: Color(0xff417020)
-                    )
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Text('Lion', style: TextStyle(fontSize: 25, color: Color(0xff417020)),),
-                ),
-              )
+              UiHelper.CustomQuestionContainer(MediaQuery.of(context).size.width/6, MediaQuery.of(context).size.width, 'Tiger'),
+              UiHelper.CustomQuestionContainer(MediaQuery.of(context).size.width/6, MediaQuery.of(context).size.width, 'Lion'),
+              UiHelper.CustomQuestionContainer(MediaQuery.of(context).size.width/6, MediaQuery.of(context).size.width, 'Leopard'),
+              UiHelper.CustomQuestionContainer(MediaQuery.of(context).size.width/6, MediaQuery.of(context).size.width, 'Donkey'),
             ],
           ),
         ),
