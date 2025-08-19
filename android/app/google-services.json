@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "350728583365",
-    "project_id": "quizappmobin",
-    "storage_bucket": "quizappmobin.firebasestorage.app"
+    "project_number": "344318827358",
+    "project_id": "quizappmobin-41825",
+    "storage_bucket": "quizappmobin-41825.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:350728583365:android:c6449ab65f8bf50ca398ac",
+        "mobilesdk_app_id": "1:344318827358:android:d99600739b50f41c0f4dcf",
         "android_client_info": {
           "package_name": "com.example.quiz_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBq8CofactbYiyg-r-pnGou_FThkmzVB-8"
+          "current_key": "AIzaSyCjQTLp9IBYy4C-SWPV6WuPuEYnTGGFkcw"
         }
       ],
       "services": {
