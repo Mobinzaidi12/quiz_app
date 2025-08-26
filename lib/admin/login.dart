@@ -69,6 +69,7 @@ class _LoginState extends State<Login> {
                           fontSize: 25,
                           color: Color(0xff417020),
                         ),
+
                       ),
                       SizedBox(height: 20),
                       Padding(
