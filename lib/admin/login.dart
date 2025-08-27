@@ -1,7 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_app/pages/home.dart';
 import 'package:quiz_app/ui_helper.dart';
-
-
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,22 +11,80 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
 
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
+  Future<void> login(String email, String password) async {
+    // Validate input
+    if (email.isEmpty || password.isEmpty) {
+      UiHelper.CustomAlertBox(context, "Please enter both email and password");
+      return;
+    }
 
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+
+      // Successfully logged in
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const Home()),
+        );
+      }
+    } on FirebaseAuthException catch (ex) {
+      // Handle specific Firebase errors
+      String errorMessage;
+      switch (ex.code) {
+        case 'user-not-found':
+          errorMessage = "No user found with this email";
+          break;
+        case 'wrong-password':
+          errorMessage = "Incorrect password";
+          break;
+        case 'invalid-email':
+          errorMessage = "Invalid email format";
+          break;
+        case 'user-disabled':
+          errorMessage = "This account has been disabled";
+          break;
+        default:
+          errorMessage = "Login failed: ${ex.message}";
+      }
+
+      if (mounted) {
+        UiHelper.CustomAlertBox(context, errorMessage);
+      }
+    } catch (e) {
+      // Handle other errors
+      if (mounted) {
+        UiHelper.CustomAlertBox(context, "An error occurred: $e");
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffDBF2C0),
+      backgroundColor: const Color(0xffDBF2C0),
       body: Stack(
         children: [
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               height: MediaQuery.of(context).size.width / 0.8,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xff417020),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(100)),
               ),
@@ -61,7 +119,7 @@ class _LoginState extends State<Login> {
                   width: MediaQuery.of(context).size.width,
                   child: Column(
                     children: [
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                       Text(
                         'Admin Login',
                         style: TextStyle(
@@ -69,32 +127,52 @@ class _LoginState extends State<Login> {
                           fontSize: 25,
                           color: Color(0xff417020),
                         ),
-
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Padding(
-                          padding: EdgeInsets.all(15),
-                          child: UiHelper.CustomTextFiled(emailController, 'Enter email', false, Icon(Icons.email, color: Color(0xff417020),))
+                        padding: const EdgeInsets.all(15),
+                        child: UiHelper.CustomTextFiled(
+                            emailController,
+                            'Enter email',
+                            false,
+                            const Icon(Icons.email, color: Color(0xff417020))
+                        ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Padding(
-                          padding: EdgeInsets.all(15),
-                          child: UiHelper.CustomTextFiled(passwordController, 'Enter Password', true, Icon(Icons.key, color: Color(0xff417020),))
+                        padding: const EdgeInsets.all(15),
+                        child: UiHelper.CustomTextFiled(
+                            passwordController,
+                            'Enter Password',
+                            true,
+                            const Icon(Icons.key, color: Color(0xff417020))
+                        ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.all(15),
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           height: 60,
                           child: ElevatedButton(
-                            onPressed: () {
-
+                            onPressed: isLoading
+                                ? null
+                                : () {
+                              login(
+                                emailController.text.trim(),
+                                passwordController.text.trim(),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xff417020),
+                              backgroundColor: const Color(0xff417020),
+                              disabledBackgroundColor: Colors.grey,
                             ),
-                            child: Text(
+                            child: isLoading
+                                ? const CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.white),
+                            )
+                                : Text(
                               'Login',
                               style: TextStyle(
                                 fontSize: 25,
@@ -105,7 +183,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -114,6 +192,6 @@ class _LoginState extends State<Login> {
           ),
         ],
       ),
-    );;
+    );
   }
 }
