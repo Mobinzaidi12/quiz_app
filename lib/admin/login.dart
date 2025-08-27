@@ -15,64 +15,47 @@ class _LoginState extends State<Login> {
   TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
 
+
   Future<void> login(String email, String password) async {
-    // Validate input
+    email = email.trim();
+    password = password.trim();
+
     if (email.isEmpty || password.isEmpty) {
-      UiHelper.CustomAlertBox(context, "Please enter both email and password");
-      return;
+      return UiHelper.CustomAlertBox(
+          context, "Please enter both email and password");
     }
 
-    setState(() {
-      isLoading = true;
-    });
+    setState(() => isLoading = true);
 
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email, password: password);
 
-      // Successfully logged in
       if (mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const Home()),
+          MaterialPageRoute(builder: (_) => const Home()),
         );
       }
     } on FirebaseAuthException catch (ex) {
-      // Handle specific Firebase errors
-      String errorMessage;
-      switch (ex.code) {
-        case 'user-not-found':
-          errorMessage = "No user found with this email";
-          break;
-        case 'wrong-password':
-          errorMessage = "Incorrect password";
-          break;
-        case 'invalid-email':
-          errorMessage = "Invalid email format";
-          break;
-        case 'user-disabled':
-          errorMessage = "This account has been disabled";
-          break;
-        default:
-          errorMessage = "Login failed: ${ex.message}";
-      }
-
-      if (mounted) {
-        UiHelper.CustomAlertBox(context, errorMessage);
-      }
+      final messages = {
+        'user-not-found': "No user found with this email",
+        'wrong-password': "Incorrect password",
+        'invalid-email': "Invalid email format",
+        'user-disabled': "This account has been disabled",
+      };
+      UiHelper.CustomAlertBox(
+          context, messages[ex.code] ?? "Login failed: ${ex.message}");
     } catch (e) {
-      // Handle other errors
-      if (mounted) {
-        UiHelper.CustomAlertBox(context, "An error occurred: $e");
-      }
+      UiHelper.CustomAlertBox(context, "An error occurred: $e");
     } finally {
-      if (mounted) {
-        setState(() {
-          isLoading = false;
-        });
-      }
+      if (mounted) setState(() => isLoading = false);
     }
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
